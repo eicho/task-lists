@@ -8,6 +8,10 @@ function App() {
     { id: 8391, name: "Watch Lectures", completed: false },
   ]);
 
+  function handleDelete(id) {
+    setTasks(tasks.filter((task) => task.id !== id));
+  }
+
   return (
     <div className="App">
       <h1>Task List</h1>
@@ -17,7 +21,9 @@ function App() {
             <span>
               {task.id} - {task.name}
             </span>
-            <button className="delete">Delete</button>
+            <button onClick={() => handleDelete(task.id)} className="delete">
+              Delete
+            </button>
           </li>
         ))}
       </ul>
